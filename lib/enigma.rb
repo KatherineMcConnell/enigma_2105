@@ -2,10 +2,10 @@ class Enigma
   def initialize
   end
 
-  def encrypt()
+  def encrypt(message, key, date)
   end
 
-  def decrypt()
+  def decrypt(ciphertext, key, date)
   end
 
 end
