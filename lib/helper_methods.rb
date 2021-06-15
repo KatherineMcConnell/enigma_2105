@@ -1,54 +1,56 @@
+require 'time'
+require '/lib/enigma'
+
 module HelperMethods
+  #Responsibilities:
+
+********************************************************
+#Key, Date, & Offset Generators
+
+  def key_generator
+    if @key.nil?
+      Array.new(5){[0,1,2,3,4,5,6,7,8,9].sample}
+    else
+      @key.split(//).map{|e|e.to_i}
+    end
+  end
+
+  def stringed_date_generator
+    @date ||= (Time.now.strftime("%m%d%y"))
+  end
+
+  def offset_generator
+    @offset = (@date.to_i**2).digits[-4..-1]
+  end
+
+  def stringed_key
+    @key.join.to_s
+  end
+
+*********************************************************
+#Key & Offset Hash Construction, Final Shift Totals
+
+
+  def final_shift_totals
+    key_values = []
+    @keys.each_cons(2) {|key| key_values << key.join.to_i}
+    paired_shifts = @offset.zip(key_values)
+    shifts_array = paired_shifts.flat_map {|elem| elem.sum}
+    final_shift_keys = [:A,:B,:C,:D]
+    final_shifts = final_shift_keys.zip(shifts_array).to_h
+  end
+
+*****************************************************************
+#Message argument
+
+#message.chars (array out charactors for iteration)
+  def shift_counter_queing_cycle
+  end
 
   def alphabet
     @alphabet = ("a".."z").to_a << " "
   end
 
-  def key_generator
-    @key_generator ||= Array.new(5){[0,1,2,3,4,5,6,7,8,9].sample}
-  end
-  #=> returns array of 5 random digit as integers in array
 
 
-  def stringed_key
-    @key_generator.join.to_s
-  end
-  #=> returns string of the key_generator
-
-  def shift_key_assignments
-      {
-        A: @key_generator[0..1].join.to_i,
-        B: @key_generator[1..2].join.to_i,
-        C: @key_generator[2..3].join.to_i,
-        D: @key_generator[3..4].join.to_i
-      }
-  end
-  #=>
-
-  def date
-    @offset_generator ||= (Time.now.strftime("%m%d%y")
-  end
-
-  def offset_generator
-    @offset_generator ||= (Time.now.strftime("%m%d%y").to_i**2).digits[-4..-1]
-  end
-
-
-  def assigned_shift_offsets
-
-    #["1", "4", "2", "1"].map{|e|e.to_i}
-      {
-        A: @offset_generator[0],
-        B: @offset_generator[1],
-        C: @offset_generator[2],
-        D: @offset_generator[3]
-      }
-  end
-
-  def total_shifts_summed_keys_and_offsets(assign_shift_keys, assign_shift_offsets)
-
-  end
-
-  def shift_counter_queing_cycle
-  end
 end
