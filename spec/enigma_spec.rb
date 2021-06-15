@@ -12,31 +12,31 @@ RSpec.describe Enigma do
       expect(enigma).to be_an_instance_of(Enigma)
     end
 
-    # it 'can encrypt a message with a key and a date and return hash' do
-    #
-    #   result = {encryption: "keder ohulw",
-    #             key: "02715",
-    #             date: "040895"
-    #           }
-    #
-    #   expect(enigma.encrypt("hello world", "02715", "040895")).to eq(result)
-    # end
-    #
-    # it 'can decrypt a message with a key and a date and return hash' do
-    #
-    #   result = { decryption: "hello world",
-    #             key: "02715",
-    #             date:"040895"
-    #           }
-    #
-    #   expect(enigma.decrypt("keder ohulw","027715","040895")).to eq(result)
-    # end
-    #
-    # it 'can encrypt a message with a key and TODAYS date' do
-    #   return = #
-    #
-    #   expect().to eq()
-    # end
+    it 'can encrypt a message with a key and a date and return hash' do
+
+      result = {encryption: "keder ohulw",
+                key: "02715",
+                date: "040895"
+              }
+
+      expect(enigma.encrypt("hello world", "02715", "040895")).to eq(result)
+    end
+
+    it 'can decrypt a message with a key and a date and return hash' do
+
+      result = { decryption: "hello world",
+                key: "02715",
+                date:"040895"
+              }
+
+      expect(enigma.decrypt("keder ohulw","027715","040895")).to eq(result)
+    end
+
+    it 'can encrypt a message with a key and TODAYS date' do
+      return = #
+
+      expect().to eq()
+    end
     #
     # context 'Student written tests' do
     #   before(each) do

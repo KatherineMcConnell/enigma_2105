@@ -5,17 +5,16 @@
         "lines": [
           1,
           1,
-          1,
           null,
-          1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
+          0,
           null,
           null,
-          1,
+          0,
           null,
-          1,
+          0,
           null,
           null,
           null,
@@ -106,22 +105,6 @@
       },
       "/Users/katherinemcconnell/Turing/1mod/projects/enigma_2105/lib/enigma.rb": {
         "lines": [
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
           null,
           null,
           null,
@@ -130,16 +113,13 @@
           null,
           null,
           null,
-          1,
           null,
-          null,
-          1,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1623705438
+    "timestamp": 1623714424
   }
 }
