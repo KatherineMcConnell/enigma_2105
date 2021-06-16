@@ -1,10 +1,10 @@
 require 'time'
-require '/lib/enigma'
+# require '/lib/enigma'
 
 module HelperMethods
   #Responsibilities:
 
-********************************************************
+# ********************************************************
 #Key, Date, & Offset Generators
 
   def key_generator
@@ -27,7 +27,7 @@ module HelperMethods
     @key.join.to_s
   end
 
-*********************************************************
+# *********************************************************
 #Key & Offset Hash Construction, Final Shift Totals
 
 
@@ -40,7 +40,7 @@ module HelperMethods
     final_shifts = final_shift_keys.zip(shifts_array).to_h
   end
 
-*****************************************************************
+# *****************************************************************
 #Message argument
 
 #message.chars (array out charactors for iteration)
