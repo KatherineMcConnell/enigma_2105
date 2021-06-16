@@ -9,19 +9,24 @@ RSpec.describe Enigma do
     end
 
     it 'exists' do
-      @enigma.encrypt("message")
+      @enigma.encrypt("hello world!!!", "02715")
       expect(@enigma).to be_an_instance_of(Enigma)
     end
 
+    # it 'can encrypt with only 1 argument, a message, and return hash' do
+    #
+    #   expected = {
+    #                 encryption: "keder ohulw",
+    #                 date: @date,
+    #                 key: stringed_key
+    #               }
+    #
+    #   expect(@enigma.encrypt("hello world")).to eq(expected)
+    # end
   end
 end
 
-  #   it 'can encrypt with only 1 argument, a message, and return hash' do
-  #
-  #     expect().to eq()
-  #   end
-  #
-  #   it 'can encrypt with 2 arguements, a message and key, and return hash' do
+  #   it 'can encrypt with 2 arguments, a message and key, and return hash' do
   #     #mock & stub todays date
   #     encrypted = enigma.encrypt("hello world", "02715")
   #
@@ -38,9 +43,9 @@ end
   #     expect(enigma.encrypt("hello world", "02715", "040895")).to eq(expected)
   #   end
   # end
-  #
-  #
-  # Describe'Interaction Pattern: DecryptionTests' do
+
+
+  # describe 'Interaction Pattern: DecryptionTests' do
   #   before(:each) do
   #     enigma = Enigma.new
   #   end
@@ -60,22 +65,15 @@ end
   #
   #     expect(enigma.decrypt("keder ohulw","027715","040895")).to eq(expected)
   #   end
+  #
+  # end
 
-    # it 'can encrypt a message with a key and TODAYS date' do
-    #   return = #
-    #
-    #   expect().to eq()
-    # end
     #
     # context 'Student written tests' do
     #   before(each) do
     #
     #   end
     #
-    #   it 'can generate a key with leading zeroes' do
-    #
-    #     expect().to eq()
-    #   end
     # #
     #   it 'can appropriately assign shift key randomly generated numbers indices' do
     #
@@ -101,12 +99,7 @@ end
     #
     #     expect().to eq()
     #   end
-    #
-    #   it 'returns foreign characters as itself' do
-    #
-    #     expect().to eq()
-    #   end
-    #
+
     #   it 'can retrieve decryption key' do
     #
     #     expect().to eq()

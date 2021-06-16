@@ -6,9 +6,8 @@ class Enigma
 
   def encrypt(message, key = nil, date = nil)
     @message = message
-    @key = key
+    @key = key_generator(key)
     @date = date
-    @key = key_generator
     @date = stringed_date_generator
     # require "pry"; binding.pry
     {encryption: character_shifter_with_counter,
@@ -24,8 +23,16 @@ class Enigma
     # encrypted_message_hash
   end
 
-  # def decrypt(ciphertext, @key, @date)
-  # end
+  def decrypt(ciphertext, key, date = nil)
+    @ciphertext = ciphertext
+    @key = key_generator(key)
+    @date = date
+    @date = stringed_date_generator
+    { decryption: reverse_character_shifter_with_counter,
+      date: @date,
+      key: stringed_key}
+
+  end
 
 end
 

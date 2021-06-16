@@ -7,11 +7,11 @@ module HelperMethods
 # ********************************************************
 #Key, Date, & Offset Generators
 
-  def key_generator
-    if @key.nil?
+  def key_generator(key)
+    if key.nil?
       Array.new(5){[0,1,2,3,4,5,6,7,8,9].sample}
     else
-      @key.split(//).map{|e|e.to_i}
+      key.split(//).map{|e|e.to_i}
     end
   end
 
@@ -48,6 +48,7 @@ module HelperMethods
   def character_shifter_with_counter
     a = ("a".."z").to_a << " "
     msg_arr = @message.downcase.chars
+    # require "pry"; binding.pry
     encrypted_msg = []
     counter = msg_arr.each_with_index do |char, index|
       if a.include?(char) == false
@@ -66,27 +67,56 @@ module HelperMethods
           encrypted_msg << cipher_key[char]
       end
     end
-    encrypted_msg
+    # require "pry"; binding.pry
+    encrypted_msg.join
   end
 
-  # def character_set_handler
-  #   if cipher_key[char].nil?
-  #     encrypted_msg << char
-  #   else
-  #     encrypted_msg << cipher_key[char]
+  def reverse_character_shifter_with_counter
+    # ciphertext_arr = @ciphertext.chars
+    # given key & date so can easily calc final_shift_totals
+    # final_shift_totals(@key, offset_generator)
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    a = ("a".."z").to_a << " "
+    ciphertext_arr = @ciphertext.chomp.split("")
+    # require "pry"; binding.pry
+    encrypted_msg = []
+    counter = ciphertext_arr.each_with_index do |char, index|
+      if a.include?(char) == false
+        encrypted_msg << char
+        elsif index % 4 == 0
+          cipher_key = Hash[a.zip(a.rotate(final_shift_totals.values[0]))].invert
+          # require "pry"; binding.pry
+          encrypted_msg << cipher_key[char]
+        elsif index % 4 == 1
+          cipher_key = Hash[a.zip(a.rotate(final_shift_totals.values[1]))].invert
+          encrypted_msg << cipher_key[char]
+        elsif index % 4 == 2
+          cipher_key = Hash[a.zip(a.rotate(final_shift_totals.values[2]))].invert
+          encrypted_msg << cipher_key[char]
+        elsif index % 4 == 3
+          cipher_key = Hash[a.zip(a.rotate(final_shift_totals.values[03]))].invert
+          encrypted_msg << cipher_key[char]
+      end
+    end
+    encrypted_msg.join
+    # require "pry"; binding.pry
+    # require "pry"; binding.pry
+  end
+  #invert?? #.merge on hashes
+  #  shifter_hash = Hash[Alpha.zip(Alpha.rotate(shift))]
+  #msg[index] ==
+  # fetch or fetch_values takes hash to array
+  #      string.chars.map { |c| encrypter.fetch(c, c) }
   #   end
-  # end
-# end
 
-    #  shifter_hash = Hash[Alpha.zip(Alpha.rotate(shift))]
-        #msg[index] ==
-    # fetch or fetch_values takes hash to array
-#      string.chars.map { |c| encrypter.fetch(c, c) }
-#   end
-#
-#   def reverse_character_shifter_with_counter
-#     #invert?? #.merge on hashes
-#   end
-#
-#
+
+
 end
