@@ -11,7 +11,7 @@ class Enigma
     @key = key_generator
     @date = stringed_date_generator
     # require "pry"; binding.pry
-    {encryption: @message,
+    {encryption: character_shifter_with_counter,
       date: @date,
       key: stringed_key}
     #encryption machine give me a letter back from this letter
