@@ -41,27 +41,41 @@ module HelperMethods
   end
 
 # *****************************************************************
-#Message argument
-
-#message.chars (array out charactors for iteration)
-  # def shift_counter_queing_cycle
-  # end
-  #
-  # def alphabet
-  #   @alphabet = ("a".."z").to_a << " "
-  # end
+#Character_shifter_with_counter
 
   def character_shifter_with_counter
-    #counter #each w index enum
-    #alphabet
-    #message #message..downcase.chars (array out charactors for iteration)
-    #begin iteration over message array by index
-    # shift coming from index bump index by 1 %4 if remainder
-    # 0 1 2 3 will determine which abcd key
-    #
-    #  encrypted = Hash[msg_arr.zip(msg_arr.rotate(shift))]
-    #msg.chars.each_with_index
+    #Alpha = ("a".."z").to_a << " "
+    #msg_arr = message.downcase.chars
+    #encrypter_msg = []
+    #counter = msg_arr.each_with_index do |letter, index|
+    #           if index % 4 == 0
+    # =>            cipher_key = Hash[alphabet.zip(alphabet.rotate(final_shift_totals.values[0]))]
+    # =>            create a hash[letter] = final_shift_totals.values[0]
+    # =>            encryted_msg << msg_arr.inject(""){|newtext, char| newtext + key[char]}
+    # =>        elsif index % 4 == 1
+    # =>            cipher_key = Hash[alphabet.zip(alphabet.rotate(final_shift_totals.values[0]))]
+    # =>            create a hash[letter] = final_shift_totals.values[1]
+    # =>            encryted_msg << msg_arr.inject(""){|newtext, char| newtext + key[char]}
+    # =>        elsif index % 4 == 2
+    #               cipher_key = Hash[alphabet.zip(alphabet.rotate(final_shift_totals.values[0]))]
+    # =>            create a hash[letter] = final_shift_totals.values[2]
+    # =>            encryted_msg << msg_arr.inject(""){|newtext, char| newtext + key[char]}
+    # =>        elsif index % 4 == 3
+    # =>            cipher_key = Hash[alphabet.zip(alphabet.rotate(final_shift_totals.values[0]))]
+    # =>            create a hash[letter] = final_shift_totals.values[3]
+    # =>            encryted_msg << msg_arr.inject(""){|newtext, char| newtext + key[char]}
+    # =>        end
+    # =>      end
+    # =>     encrypted_msg
+
+    #  shifter_hash = Hash[Alpha.zip(Alpha.rotate(shift))]
+        #msg[index] ==
+    # fetch or fetch_values takes hash to array
      string.chars.map { |c| encrypter.fetch(c, c) }
+  end
+
+  def reverse_character_shifter_with_counter
+    #invert?? #.merge on hashes
   end
 
 
