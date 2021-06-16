@@ -6,7 +6,6 @@ file = File.open(ARGV[0], "r")
 
 message = file.read
 
-
 file.close
 
 enigma = Enigma.new

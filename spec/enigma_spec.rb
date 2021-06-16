@@ -28,13 +28,6 @@ end
   #     expect(encrypted).to eq(####)
   #   end
   #
-  #   it 'can encrypt with 2 arguments, a message and date, and return hash' do
-  #     ### generates random key and uses todays date
-  #     ### mock & stub todays date
-  #
-  #     expect(enigma.encrypt("hello world")).to eq()
-  #   end
-  #
   #   it 'can encrypt with 3 arguments, a message, key, and date, and return hash' do
   #
   #     expected = {encryption: "keder ohulw",

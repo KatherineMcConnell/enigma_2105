@@ -9,10 +9,11 @@ class Enigma
     @key = key
     @date = date
     @key = key_generator
-    require "pry"; binding.pry
-    {encryption: @key,
-      date: "2021-01-01",
-      key: '12345'}
+    @date = stringed_date_generator
+    # require "pry"; binding.pry
+    {encryption: @message,
+      date: @date,
+      key: stringed_key}
     #encryption machine give me a letter back from this letter
     # here's a date, doesn't need to get sent a new date each time it gets sents a letter...gets
     # passed into initialize in EncryptionMachine

@@ -35,8 +35,8 @@ module HelperMethods
     key_values = []
     @keys.each_cons(2) {|key| key_values << key.join.to_i}
     paired_shifts = @offset.zip(key_values)
-    shifts_array = paired_shifts.flat_map {|elem| elem.sum}
-    final_shift_keys = [:A,:B,:C,:D]
+    shifts_arr = paired_shifts.flat_map {|elem| elem.sum}
+    final_shift_keys = [:A,:B,:C,:D]#0,1,2,3
     final_shifts = final_shift_keys.zip(shifts_array).to_h
   end
 
@@ -44,13 +44,25 @@ module HelperMethods
 #Message argument
 
 #message.chars (array out charactors for iteration)
-  def shift_counter_queing_cycle
-  end
+  # def shift_counter_queing_cycle
+  # end
+  #
+  # def alphabet
+  #   @alphabet = ("a".."z").to_a << " "
+  # end
 
-  def alphabet
-    @alphabet = ("a".."z").to_a << " "
+  def character_shifter_with_counter
+    #counter #each w index enum
+    #alphabet
+    #message #message..downcase.chars (array out charactors for iteration)
+    #begin iteration over message array by index
+    # shift coming from index bump index by 1 %4 if remainder
+    # 0 1 2 3 will determine which abcd key
+    #
+    #  encrypted = Hash[msg_arr.zip(msg_arr.rotate(shift))]
+    #msg.chars.each_with_index
+     string.chars.map { |c| encrypter.fetch(c, c) }
   end
-
 
 
 end
