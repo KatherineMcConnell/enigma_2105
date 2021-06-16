@@ -16,7 +16,7 @@ module HelperMethods
   end
 
   def stringed_date_generator
-    @date ||= (Time.now.strftime("%m%d%y"))
+    @date ||= (Time.now.strftime("%d%m%y"))
   end
 
   def offset_generator
@@ -46,28 +46,37 @@ module HelperMethods
 #Character_shifter_with_counter
 
   def character_shifter_with_counter
-    alpha = ("a".."z").to_a << " "
+    a = ("a".."z").to_a << " "
     msg_arr = @message.downcase.chars
     encrypted_msg = []
-    counter = msg_arr.each_with_index do |letter, index|
-      if index % 4 == 0
-        cipher_key = Hash[alpha.zip(alpha.rotate(final_shift_totals.values[0]))]
-        encrypted_msg << cipher_key[letter]
-      elsif index % 4 == 1
-        cipher_key = Hash[alpha.zip(alpha.rotate(final_shift_totals.values[1]))]
-        encrypted_msg << cipher_key[letter]
-      elsif index % 4 == 2
-        cipher_key = Hash[alpha.zip(alpha.rotate(final_shift_totals.values[2]))]
-        encrypted_msg << cipher_key[letter]
-      elsif index % 4 == 3
-        cipher_key = Hash[alpha.zip(alpha.rotate(final_shift_totals.values[03]))]
-        encrypted_msg << cipher_key[letter]
+    counter = msg_arr.each_with_index do |char, index|
+      if a.include?(char) == false
+        encrypted_msg << char
+        elsif index % 4 == 0
+          cipher_key = Hash[a.zip(a.rotate(final_shift_totals.values[0]))]
+          encrypted_msg << cipher_key[char]
+        elsif index % 4 == 1
+          cipher_key = Hash[a.zip(a.rotate(final_shift_totals.values[1]))]
+          encrypted_msg << cipher_key[char]
+        elsif index % 4 == 2
+          cipher_key = Hash[a.zip(a.rotate(final_shift_totals.values[2]))]
+          encrypted_msg << cipher_key[char]
+        elsif index % 4 == 3
+          cipher_key = Hash[a.zip(a.rotate(final_shift_totals.values[03]))]
+          encrypted_msg << cipher_key[char]
       end
     end
     encrypted_msg
-    # require "pry"; binding.pry
   end
-end
+
+  # def character_set_handler
+  #   if cipher_key[char].nil?
+  #     encrypted_msg << char
+  #   else
+  #     encrypted_msg << cipher_key[char]
+  #   end
+  # end
+# end
 
     #  shifter_hash = Hash[Alpha.zip(Alpha.rotate(shift))]
         #msg[index] ==
@@ -80,4 +89,4 @@ end
 #   end
 #
 #
-# end
+end
